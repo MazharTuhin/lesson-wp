@@ -4,28 +4,30 @@
                 <!----- about company ----->
                 <div class="about-company">
                     <div class="f-logo">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo-footer.png" alt="">
+                        <?php if(get_theme_mod('footer_logo')): ?>
+                            <img src="<?php echo esc_url(get_theme_mod('footer_logo')); ?>" alt="">
+                        <?php endif; ?>
                     </div>
 
-                    <p>Need to help for your dream Career? trust us. With Lesson, study becomes a lot easier with us.</p>
+                    <p><?php echo get_theme_mod('footer_about_text'); ?></p>
 
                     <div class="social-links">
                         <!----- twitter ----->
-                        <a href="#">
+                        <a href="<?php echo esc_url(get_theme_mod('footer_twitter_link', '#')) ?>">
                             <svg width="18" height="15" viewBox="0 0 18 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M5.64991 15C3.57026 15 1.63168 14.3864 0 13.3276C1.38535 13.4185 3.83019 13.2007 5.35087 11.7292C3.06326 11.6227 2.0316 9.8428 1.89703 9.08215C2.0914 9.15822 3.01841 9.24949 3.54172 9.03651C0.91022 8.36714 0.506525 6.02434 0.596235 5.30933C1.08964 5.65923 1.92694 5.78093 2.25587 5.75051C-0.196205 3.97059 0.685945 1.2931 1.11954 0.71501C2.87924 3.18826 5.51649 4.57733 8.7791 4.65459C8.71759 4.38089 8.6851 4.09593 8.6851 3.80325C8.6851 1.70277 10.3586 0 12.423 0C13.5016 0 14.4735 0.46484 15.1558 1.20837C15.8766 1.03703 16.9613 0.635914 17.4916 0.289047C17.2243 1.26268 16.3922 2.07488 15.8888 2.37592C15.8847 2.36563 15.893 2.38616 15.8888 2.37592C16.331 2.30807 17.5274 2.07481 18 1.74949C17.7663 2.29647 16.884 3.20591 16.16 3.71506C16.2947 9.74221 11.7492 15 5.64991 15Z" fill="white"/>
                             </svg>
                         </a>
 
                         <!----- facebook ----->
-                        <a href="#">
+                        <a href="<?php echo esc_url(get_theme_mod('footer_facebook_link', '#')) ?>">
                             <svg width="9" height="15" viewBox="0 0 9 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M8.41028 8.37379L8.87669 5.67961H5.95891V3.93204C5.95891 3.1948 6.36575 2.47573 7.67262 2.47573H9V0.182039C9 0.182039 7.79588 0 6.6452 0C4.24113 0 2.67125 1.29064 2.67125 3.62621V5.67961H0V8.37379H2.67125V14.8871C3.20753 14.9618 3.75618 15 4.31508 15C4.87398 15 5.42263 14.9618 5.95891 14.8871V8.37379H8.41028Z" fill="white"/>
                             </svg>
                         </a>
 
-                        <!----- linkdine ----->
-                        <a href="#">
+                        <!----- linkedin ----->
+                        <a href="<?php echo esc_url(get_theme_mod('footer_linkedin_link', '#')) ?>">
                             <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M3.61856 1.81302C3.61856 2.81432 2.80852 3.62603 1.80928 3.62603C0.810041 3.62603 0 2.81432 0 1.81302C0 0.811715 0.810041 0 1.80928 0C2.80852 0 3.61856 0.811715 3.61856 1.81302Z" fill="white"/>
                                 <path d="M0.247423 4.95868H3.34021V15H0.247423V4.95868Z" fill="white"/>
@@ -34,7 +36,7 @@
                         </a>
 
                         <!----- instagram ----->
-                        <a href="#">
+                        <a href="<?php echo esc_url(get_theme_mod('footer_instagram_link', '#')) ?>">
                             <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M12.75 3.375C12.75 3.99632 12.2463 4.5 11.625 4.5C11.0037 4.5 10.5 3.99632 10.5 3.375C10.5 2.75368 11.0037 2.25 11.625 2.25C12.2463 2.25 12.75 2.75368 12.75 3.375Z" fill="white"/>
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M7.5 11.25C9.57107 11.25 11.25 9.57107 11.25 7.5C11.25 5.42893 9.57107 3.75 7.5 3.75C5.42893 3.75 3.75 5.42893 3.75 7.5C3.75 9.57107 5.42893 11.25 7.5 11.25ZM7.5 9.75C8.74264 9.75 9.75 8.74264 9.75 7.5C9.75 6.25736 8.74264 5.25 7.5 5.25C6.25736 5.25 5.25 6.25736 5.25 7.5C5.25 8.74264 6.25736 9.75 7.5 9.75Z" fill="white"/>
@@ -46,9 +48,12 @@
 
                 <!----- company links ----->
                 <div class="footer-nav company">
-                    <div>Company</div>
+                    <?php if (get_theme_mod('footer_menu_1_title')): ?>
+                        <div>
+                            <?php echo get_theme_mod('footer_menu_1_title'); ?>
+                        </div>
+                    <?php endif; ?>
                     <hr>
-
                     <?php 
                         wp_nav_menu([
                             'theme_location' => __('footer_menu_1')
@@ -57,7 +62,11 @@
                 </div>
 
                 <div class="footer-nav support">
-                    <div>Support</div>
+                    <?php if (get_theme_mod('footer_menu_2_title')): ?>
+                        <div>
+                            <?php echo get_theme_mod('footer_menu_2_title'); ?>
+                        </div>
+                    <?php endif; ?>
                     <hr>
 
                     <?php
@@ -68,27 +77,56 @@
                 </div>
 
                 <div class="footer-nav address">
-                    <div>Address</div>
+                    <?php if (get_theme_mod('footer_address_title')): ?>
+                        <div>
+                            <?php echo esc_html(get_theme_mod('footer_address_title')); ?>
+                        </div>
+                    <?php endif; ?>
                     <hr>
 
                     <!----- location ----->
                     <div class="address-details location">
-                        <a href="https://maps.app.goo.gl/5QJbeQc3kLpr9bX49">
-                            <span><strong>Location:</strong> 27 Division St, New York, NY 10002, USA</span>
-                        </a>
+                        <span>
+                            <strong>
+                                <?php if(get_theme_mod('footer_location_title')): ?>
+                                    <?php echo esc_html(get_theme_mod('footer_location_title')); ?>
+                                <?php endif ?>
+                            </strong> 
+                            <?php if(get_theme_mod('footer_location_text')): ?>
+                                <?php echo esc_html(get_theme_mod('footer_location_text')); ?>
+                            <?php endif ?>
+                        </span>
                     </div>
 
                     <!----- email ----->
                     <div class="address-details email">
-                        <a href="mailto:email@gmail.com">
-                            <span><strong>Email:</strong> email@gmail.com</span>
+                        <a href="mailto:<?php echo esc_html(get_theme_mod('footer_email')); ?>">
+                            <span>
+                                <strong>
+                                    <?php if (get_theme_mod('footer_email_title')): ?>
+                                        <?php echo esc_html(get_theme_mod('footer_email_title')); ?>
+                                    <?php endif; ?>
+                                </strong> 
+                                <?php if (get_theme_mod('footer_email')): ?>
+                                    <?php echo esc_html(get_theme_mod('footer_email')); ?>
+                                <?php endif ?>
+                            </span>
                         </a>
                     </div>
 
                     <!----- contact number ----->
                     <div class="address-details phone">
-                        <a href="tel:+0001234567890">
-                            <span><strong>Phone:</strong> + 000 1234 567 890</span>
+                        <a href="tel:<?php echo esc_html(get_theme_mod('footer_phone')); ?>">
+                            <span>
+                                <strong>
+                                    <?php if (get_theme_mod('footer_phone_title')): ?>
+                                        <?php echo esc_html(get_theme_mod('footer_phone_title')); ?>
+                                    <?php endif; ?>
+                                </strong> 
+                                <?php if (get_theme_mod('footer_phone')): ?>
+                                    <?php echo esc_html(get_theme_mod('footer_phone')); ?>
+                                <?php endif ?>
+                            </span>
                         </a>
                     </div>
                 </div>
