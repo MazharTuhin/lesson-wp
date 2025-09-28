@@ -1622,3 +1622,28 @@ footer {
 .main-menu li:hover > a:not(:only-child)::after, .main-menu-phone li:hover > a:not(:only-child)::after {
     transform: rotate(90deg);
 }
+
+/* Custom Design */
+.sidebar-widget ul li.cat-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.sidebar-widget .tag-cloud a {
+    display: inline-flex;
+    align-items: center;
+    font-size: 13px!important;
+    justify-content: center;
+}
+
+.search-results .blog-list{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.search-results .blog-list .blog-item {
+    width: calc(100% / 3);
+    padding: 0 20px;
+}

@@ -22,6 +22,9 @@ function lessonlms_theme_scripts() {
     
     // Boxicons CSS
     wp_enqueue_style('boxicons', 'https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css', array(), '2.1.4');
+    
+    // Font Awesome CSS
+    wp_enqueue_style('fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css', array(), '7.0.1');
 
     // jQuery 
     wp_enqueue_script('jquery');
@@ -37,7 +40,7 @@ add_action("wp_enqueue_scripts","lessonlms_theme_scripts");
 function lessonlms_theme_registration() {
     // For Enable Post Featured Image
     add_theme_support('post-thumbnails');
-    
+
     // Theme LOGO
     add_theme_support('custom-logo', array(
         'height' => 17,
@@ -53,6 +56,206 @@ function lessonlms_theme_registration() {
 add_action('after_setup_theme', 'lessonlms_theme_registration');
 
 function lessonlsm_customize_register($wp_customize) {
+    // ------------------- HERO SECTION ----------------------- //
+    $wp_customize->add_section('hero_section', [
+        'title' => __('Hero Section', 'lessonlms'),
+        'priority' => 120,
+    ]);
+
+    // Hero Image
+    $wp_customize->add_setting('hero_image', [
+        'default' => get_template_directory_uri() . '/assets/images/hero-img.png',
+    ]);
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'hero_image', [
+        'label' => __('Hero Image', 'lessonlam'),
+        'settings' => 'hero_image',
+        'section' => 'hero_section',
+    ]));
+
+    // Hero Section Title
+    $wp_customize->add_setting('hero_section_title', [
+        'default' => 'Learn without limits and spread knowledge.',
+    ]);
+
+    $wp_customize->add_control('hero_section_title', [
+        'label' => __('Section Title', 'lessonlms'),
+        'settings' => 'hero_section_title',
+        'section' => 'hero_section',
+        'type' => 'text',
+    ]);
+
+    // Hero Section Description
+    $wp_customize->add_setting('hero_section_description', [
+        'default' => 'Build new skills for that “this is my year” feeling with courses, certificates, and degrees from world-class universities and companies.',
+    ]);
+
+    $wp_customize->add_control('hero_section_description', [
+        'label' => __('Section Description', 'lessonlms'),
+        'section' => 'hero_section',
+        'type' => 'textarea'
+    ]);
+
+    // Hero Button Text
+    $wp_customize->add_setting('hero_button_text', [
+        'default' => 'See Courses',
+    ]);
+
+    $wp_customize->add_control('hero_button_text', [
+        'label' => __('Button Text', 'lessonlms'),
+        'section' => 'hero_section',
+        'type' => 'text'
+    ]);
+
+    // Hero Button Link
+    $wp_customize->add_setting('hero_button_link', [
+        'default' => home_url('/courses'),
+    ]);
+
+    $wp_customize->add_control('hero_button_link', [
+        'label' => __('Button Link', 'lessonlms'),
+        'section' => 'hero_section',
+        'type' => 'url'
+    ]);
+
+    // Hero Video Text
+    $wp_customize->add_setting('hero_video_text', [
+        'default' => 'Watch Video',
+    ]);
+
+    $wp_customize->add_control('hero_video_text', [
+        'label' => __('Video Text', 'lessonlms'),
+        'section' => 'hero_section',
+        'type' => 'text'
+    ]);
+
+    // Hero Video Link
+    $wp_customize->add_setting('hero_video_link', [
+        'default' => '#',
+    ]);
+
+    $wp_customize->add_control('hero_video_link', [
+        'label' => __('Video Link', 'lessonlms'),
+        'section' => 'hero_section',
+        'type' => 'url'
+    ]);
+
+    // Engagement Title
+    $wp_customize->add_setting('engagement_title', [
+        'default' => 'Recent engagement',
+    ]);
+
+    $wp_customize->add_control('engagement_title', [
+        'label' => __('Engagement Title', 'lessonlms'),
+        'section' => 'hero_section',
+        'type' => 'text'
+    ]);
+
+    // Engagement Student Count
+    $wp_customize->add_setting('engagement_student_count', [
+        'default' => '50K',
+    ]);
+
+    $wp_customize->add_control('engagement_student_count', [
+        'label' => __('Engagement Student Count', 'lessonlms'),
+        'section' => 'hero_section',
+        'type' => 'text'
+    ]);
+
+    // Engagement Course Count
+    $wp_customize->add_setting('engagement_course_count', [
+        'default' => '70+',
+    ]);
+
+    $wp_customize->add_control('engagement_course_count', [
+        'label' => __('Engagement Course Count', 'lessonlms'),
+        'section' => 'hero_section',
+        'type' => 'text'
+    ]);
+
+    // Hero Course 1 title
+    $wp_customize->add_setting('hero_course_1_title', [
+        'default' => 'UI/UX Design',
+    ]);
+
+    $wp_customize->add_control('hero_course_1_title', [
+        'label' => __('Course 1 Title', 'lessonlms'),
+        'section' => 'hero_section',
+        'type' => 'text'
+    ]);
+
+    // Hero Course 1 count
+    $wp_customize->add_setting('hero_course_1_count', [
+        'default' => '20',
+    ]);
+
+    $wp_customize->add_control('hero_course_1_count', [
+        'label' => __('Course 1 Count', 'lessonlms'),
+        'section' => 'hero_section',
+        'type' => 'text'
+    ]);
+
+    // Hero Course 2 title
+    $wp_customize->add_setting('hero_course_2_title', [
+        'default' => 'Development',
+    ]);
+
+    $wp_customize->add_control('hero_course_2_title', [
+        'label' => __('Course 2 Title', 'lessonlms'),
+        'section' => 'hero_section',
+        'type' => 'text'
+    ]);
+
+    // Hero Course 2 count
+    $wp_customize->add_setting('hero_course_2_count', [
+        'default' => '20',
+    ]);
+
+    $wp_customize->add_control('hero_course_2_count', [
+        'label' => __('Course 2 Count', 'lessonlms'),
+        'section' => 'hero_section',
+        'type' => 'text'
+    ]);
+
+    // Hero Course 3 title
+    $wp_customize->add_setting('hero_course_3_title', [
+        'default' => 'Marketing',
+    ]);
+
+    $wp_customize->add_control('hero_course_3_title', [
+        'label' => __('Course 3 Title', 'lessonlms'),
+        'section' => 'hero_section',
+        'type' => 'text'
+    ]);
+
+    // Hero Course 3 count
+    $wp_customize->add_setting('hero_course_3_count', [
+        'default' => '30',
+    ]);
+
+    $wp_customize->add_control('hero_course_3_count', [
+        'label' => __('Course 3 Count', 'lessonlms'),
+        'section' => 'hero_section',
+        'type' => 'text'
+    ]);
+
+    // ------------------- CTA SECTION ----------------------- //
+    $wp_customize->add_section('cta_section', [
+        'title' => __('CTA Section', 'lessonlms'),
+        'priority' => 115,
+    ]);
+
+    // CTA section title
+    $wp_customize->add_setting('cta_section_title', [
+        'default' => 'Take the next step toward your personal and professional goals with Lesson.',
+    ]);
+
+    $wp_customize->add_control('cta_section_title', [
+        'label' => __('Section Title', 'lessonlms'),
+        'section' => 'cta_section',
+        'type' => 'text',
+    ]);
+
+
     //-------------------- BLOG SECTION -----------------------//
     $wp_customize->add_section('blog_section', [
         'title' => __('Blog Section', 'lessonlms'),
@@ -65,7 +268,7 @@ function lessonlsm_customize_register($wp_customize) {
     ]);
 
     $wp_customize->add_control('blog_section_title', [
-        'label' => __('Blog Section Title', 'lessonlms'),
+        'label' => __('Section Title', 'lessonlms'),
         'section' => 'blog_section',
         'type' => 'text'
     ]);
@@ -76,7 +279,7 @@ function lessonlsm_customize_register($wp_customize) {
     ]);
 
     $wp_customize->add_control('blog_section_description', [
-        'label' => __('Blog Section Description', 'lessonlms'),
+        'label' => __('Section Description', 'lessonlms'),
         'section' => 'blog_section',
         'type' => 'textarea'
     ]);
@@ -228,3 +431,18 @@ function lessonlsm_customize_register($wp_customize) {
     ]);
 }
 add_action('customize_register', 'lessonlsm_customize_register');
+
+function lessonlms_register_sidebar () {
+    register_sidebar([
+        'name' => __('Blog Sidebar', 'lessonlms'),
+        'id' => 'blog_sidebar',
+        'description' => __('Widgets in this area will be shown on the blog sidebar', 'lessonlms'),
+        'before_widgets' => '<div class="sidebar-widget search-widget">',
+        'after_widgets' => '</div>',
+        'before_title' => '<h3 class="widget-title">',
+        'after_title' => '</h3>',
+
+
+    ]);
+}
+add_action('widgets_init', 'lessonlms_register_sidebar');
