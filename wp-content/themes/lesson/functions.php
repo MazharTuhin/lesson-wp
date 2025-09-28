@@ -241,7 +241,7 @@ function lessonlsm_customize_register($wp_customize) {
     // ------------------- CTA SECTION ----------------------- //
     $wp_customize->add_section('cta_section', [
         'title' => __('CTA Section', 'lessonlms'),
-        'priority' => 115,
+        'priority' => 140,
     ]);
 
     // CTA section title
@@ -255,11 +255,141 @@ function lessonlsm_customize_register($wp_customize) {
         'type' => 'text',
     ]);
 
+    // CTA section description
+    $wp_customize->add_setting('cta_section_description', [
+        'default' => 'Take the next step toward. Join now to receive personalized and more recommendations from the full Coursera catalog.',
+    ]);
+
+    $wp_customize->add_control('cta_section_description', [
+        'label' => __('Section Description', 'lessonlms'),
+        'section' => 'cta_section',
+        'type' => 'textarea',
+    ]);
+
+    // CTA section button text
+    $wp_customize->add_setting('cta_button_text', [
+        'default' => 'Join Now',
+    ]);
+
+    $wp_customize->add_control('cta_button_text', [
+        'label' => __('Button Text', 'lessonlms'),
+        'section' => 'cta_section',
+        'type' => 'text',
+    ]);
+
+    // CTA section button link
+    $wp_customize->add_setting('cta_button_link', [
+        'default' => '#',
+    ]);
+
+    $wp_customize->add_control('cta_button_link', [
+        'label' => __('Button Link', 'lessonlms'),
+        'section' => 'cta_section',
+        'type' => 'url',
+    ]);
+
+    // CTA Image
+    $wp_customize->add_setting('cta_image', [
+        'default' => get_template_directory_uri() . "/assets/images/cta-img.png",
+        'tranport' => 'refresh',
+        'sanitize_callback' => 'esc_url_raw',
+    ]);
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'cta_image', [
+        'label' => __('CTA Image', 'lessonlms'),
+        'settings' => 'cta_image',
+        'section' => 'cta_section',
+    ]));
+
+    // ------------------- FEATURES SECTION ----------------------- //
+    $wp_customize->add_section('features_section', [
+        'title' => __('Features Section', 'lessonlms'),
+        'priority' => 135,
+    ]);
+
+    // Features section title
+    $wp_customize->add_setting('features_section_title', [
+        'default' => 'Learner outcomes through our awesome platform',
+    ]);
+
+    $wp_customize->add_control('features_section_title', [
+        'label' => __('Section Title', 'lessonlms'),
+        'section' => 'features_section',
+        'type' => 'text',
+    ]);
+
+    // Features section description
+    $wp_customize->add_setting('features_section_description', [
+        'default' => '87% of people learning for professional development report career benefits like getting a promotion, a raise, or starting a new career.',
+    ]);
+
+    $wp_customize->add_control('features_section_description', [
+        'label' => __('Section Description', 'lessonlms'),
+        'section' => 'features_section',
+        'type' => 'textarea',
+    ]);
+
+    // Features section sub description
+    $wp_customize->add_setting('features_section_sub_description', [
+        'default' => 'Lesson Impact Report (2025)',
+    ]);
+
+    $wp_customize->add_control('features_section_sub_description', [
+        'label' => __('Section Sub Description', 'lessonlms'),
+        'section' => 'features_section',
+        'type' => 'text',
+    ]);
+
+    // Features section button text
+    $wp_customize->add_setting('features_button_text', [
+        'default' => 'Sign Up',
+    ]);
+
+    $wp_customize->add_control('features_button_text', [
+        'label' => __('Button Text', 'lessonlms'),
+        'section' => 'features_section',
+        'type' => 'text',
+    ]);
+
+    // Features section button link
+    $wp_customize->add_setting('features_button_link', [
+        'default' => '#',
+    ]);
+
+    $wp_customize->add_control('features_button_link', [
+        'label' => __('Button Link', 'lessonlms'),
+        'section' => 'features_section',
+        'type' => 'url',
+    ]);
+
+    // Features Image 1
+    $wp_customize->add_setting('features_image_1', [
+        'default' => get_template_directory_uri() . "/assets/images/features-img-1.png",
+        'tranport' => 'refresh',
+        'sanitize_callback' => 'esc_url_raw',
+    ]);
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'features_image_1', [
+        'label' => __('Features Image 1', 'lessonlms'),
+        'section' => 'features_section',
+    ]));
+
+    // Features Image 2
+    $wp_customize->add_setting('features_image_2', [
+        'default' => get_template_directory_uri() . "/assets/images/features-img-2.png",
+        'tranport' => 'refresh',
+        'sanitize_callback' => 'esc_url_raw',
+    ]);
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'features_image_2', [
+        'label' => __('Features Image 2', 'lessonlms'),
+        'section' => 'features_section',
+    ]));
 
     //-------------------- BLOG SECTION -----------------------//
     $wp_customize->add_section('blog_section', [
         'title' => __('Blog Section', 'lessonlms'),
-        'priority' => 120,
+        'priority' => 150,
     ]);
 
     // Blog Section Title
@@ -287,7 +417,7 @@ function lessonlsm_customize_register($wp_customize) {
     //-------------------- FOOTER SECTION ---------------------//
     $wp_customize->add_section('footer_section', [
         'title' => __('Footer Section', 'lessonlms'),
-        'priority' => 120,
+        'priority' => 150,
     ]);
 
     // Footer Logo
