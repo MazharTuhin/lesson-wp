@@ -2,8 +2,6 @@
 
 // Enqueue scripts and styles
 
-use Soap\Url;
-
 function lessonlms_theme_scripts() {
     // Google Fonts
     wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;1,400&family=Sen:wght@700&display=swap');
@@ -576,3 +574,25 @@ function lessonlms_register_sidebar () {
     ]);
 }
 add_action('widgets_init', 'lessonlms_register_sidebar');
+
+function lessonlms_register_course() {
+    register_post_type('course',
+		array(
+			'labels' => array(
+				'name' => __('Courses', 'lessonlms'),
+				'singular_name' => __('Course', 'lessonlms'),
+                'add_new' => __('Add New Course', 'lessonlms'),
+                'add_new_item' => __('Add New Course', 'lessonlms'),
+                'edit_item' => __('Edit Course', 'lessonlms'),
+                'new_item' => __('New Course', 'lessonlms'),
+                'search_items' => __('Search Course', 'lessonlms'),
+			),
+                'public'      => true,
+                'has_archive' => true,
+                'rewrite' => array('slug' => 'course'),
+                'supports' => array('title', 'editor', 'thumbnail', 'custom-fields'),
+                'menu_icon' => 'dashicons-welcome-learn-more',
+		)
+	);
+}
+add_action('init', 'lessonlms_register_course');

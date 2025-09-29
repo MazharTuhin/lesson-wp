@@ -30,6 +30,18 @@ svg{
     margin: 0 auto;
 }
 
+.black-bg-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #171100;
+    color: #FFF;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
 .yellow-bg-btn{
     display: flex;
     align-items: center;
@@ -40,7 +52,6 @@ svg{
     position: relative;
     overflow: hidden;
     z-index: 1;
-    
 }
 
 /*----- btn hover effect -----*/
@@ -57,6 +68,21 @@ svg{
     transition: all 0.3s;
     z-index: -2;
 }
+
+.black-bg-btn::after{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #FFB900;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: all 0.3s;
+    z-index: -2;
+}
+
 .black-btn::after{
     content: '';
     width: 100%;
@@ -69,10 +95,13 @@ svg{
     transform-origin: left;
     z-index: -2;
 }
+
 .yellow-bg-btn:hover::after,
-.black-btn:hover::after{
+.black-btn:hover::after,
+.black-bg-btn:hover::after{
     transform: scaleX(1);
 }
+
 
 
 /*------ Header start -----*/
@@ -414,7 +443,7 @@ nav.main-menu-phone ul {
 
 /*----- courses section -----*/
 .courses{
-    padding: 200px 0 194px 0;
+    padding: 160px 0;
 }
 .courses-heading {
     margin-bottom: 53px;
@@ -443,14 +472,6 @@ nav.main-menu-phone ul {
     line-height: 126.316%;
     letter-spacing: -0.76px;
     margin-bottom: 16px;
-}
-
-.courses-heading p {
-    color: #5F5B53;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 166.667%;
-    max-width: 458px;
 }
 
 .courses-wrapper{
@@ -538,12 +559,11 @@ nav.main-menu-phone ul {
 }
 
 .price-btn .book-now {
-    width: 118px;
-    height: 50px;
     border-radius: 25px;
     font-size: 14px;
     font-weight: 600;
     line-height: 185.714%;
+    padding: 12px 24px;
     background-color: black;
     transition: all 0.3s;
 }
@@ -1646,4 +1666,80 @@ footer {
 .search-results .blog-list .blog-item {
     width: calc(100% / 3);
     padding: 0 20px;
+}
+
+/* Courses */
+
+.archive-courses {
+    padding: 50px 0;
+    background-color: #ffffff;
+}
+
+.course-card .img {
+    overflow: hidden;
+    max-height: 280px;
+}
+
+.course-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.courses-grid {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 30px;
+    margin: 0 -15px;
+}
+
+.courses-grid .course-card {
+    display: flex;
+    padding: 0 15px;
+    flex-basis: calc(100% / 3);
+}
+
+.courses-grid .course-inner {
+    border-radius: 12px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 16px 32px 0px rgba(0, 0, 0, 0.05);
+}
+
+.courses-grid .course-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.pagination .page-btn {
+    background-color: #ffffff;
+    height: 30px;
+    width: 30px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.05);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: all 0.3s;
+}
+
+.pagination .page-btn:hover,
+.pagination .active {
+    background: #FFB900;
+    color: #ffffff;
+}
+
+.pagination a.next:hover {
+    color: #FFB900;
 }

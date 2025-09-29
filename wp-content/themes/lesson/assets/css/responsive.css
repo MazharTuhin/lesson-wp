@@ -218,6 +218,9 @@
     }
 
     /*----- courses section -----*/
+    .courses-grid .course-card {
+        flex-basis: calc(100% / 2);
+    }
     .courses-heading h2{
         font-size: 28px;
     }
@@ -250,8 +253,7 @@
         font-size: 16px;
     }
     .price-btn .book-now{
-        width: 60%;
-        height: 40px;
+        padding: 8px 16px;
     }
 
      /*----- testimonial section -----*/
@@ -583,6 +585,17 @@
     .courses {
         padding-top: 50px !important;
         padding-bottom: 50px !important;
+    }
+    .courses-grid .course-card {
+        flex-basis: 100%;
+    }
+    .courses-grid .img {
+        height: 200px;
+    }
+    .courses-grid img {
+        object-fit: contain;
+        width: auto;
+        height: auto;
     }
     .courses-heading h2{
         font-size: 24px;
