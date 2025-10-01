@@ -1684,6 +1684,7 @@ footer {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    vertical-align: middle;
 }
 
 .courses-grid {
@@ -1743,3 +1744,203 @@ footer {
 .pagination a.next:hover {
     color: #FFB900;
 }
+
+/* SINGLE COURSE */
+
+.single-course {
+    background: #FFFFFF;
+    color: #130606;
+}
+
+.single-course a:hover {
+    color: #FFB900;
+}
+
+.single-course .course-header {
+    padding-bottom: 24px;
+}
+
+.single-course .course-header h2 {
+    font-size: 48px;
+    margin-top: 20px;
+    margin-bottom: 18px;
+}
+
+.course-header {
+    padding-top: 12px;
+}
+
+.course-header .course-meta {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.course-meta .rating {
+    display: flex;
+    /* align-items: center; */
+    gap: 8px;
+}
+
+.course-meta .stars {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.course-meta .stars i,
+.course-meta .rating span {
+    color: #FFB900;
+}
+
+.course-meta .enrolled {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.course-content {
+    display: flex;
+    margin: 0 -15px;
+}
+
+.course-main {
+    padding: 0 15px;
+    flex-basis: calc((100% / 3) * 2);
+}
+
+.course-sidebar {
+    padding: 0 15px;
+    flex-basis: calc((100% / 3) * 1);
+}
+
+.course-hero {
+    background: #634700;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    position: relative;
+}
+
+.course-hero img {
+    width: 100%;
+    vertical-align: middle;
+    object-fit: cover;
+    height: 100%;
+}
+
+.course-hero .price-box {
+    max-width: 300px;
+    background: #FFFFFF;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    border-radius: 12px;
+    padding: 30px;
+}
+
+.course-hero ul li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.single-course i {
+    color: #FFB900;
+}
+
+.price-box .current-price {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.price-box .original-price {
+    margin-bottom: 4px;
+    text-decoration: line-through;
+}
+
+.price-box .discount-badge {
+    background-color: #FF5550;
+    color: #FFFFFF;
+    padding: 2px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 16px;
+}
+
+.price-box button {
+    display: block;
+    background-color: #FFB900;
+    color: #FFFFFF;
+    border-radius: 6px;
+    width: 100%;
+    border: none;
+    padding: 12px 16px;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.price-box button:hover {
+    background-color: #f2b100;
+}
+
+.includes h4 {
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.includes ul li {
+    margin-bottom: 8px;
+}
+
+/* Sidebar */
+.sidebar-card {
+    background: #FFFFFF;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0px 16px 32px 0px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+    border: 1px solid #eee;
+}
+
+.sidebar-card-title {
+    color: #171100;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.sidebar-card-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background: #FFB900;
+}
+
+.course-details-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.course-details-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.course-details-list li div {
+    display: flex;
+    flex-direction: column;
+}
+
+
+

@@ -596,3 +596,76 @@ function lessonlms_register_course() {
 	);
 }
 add_action('init', 'lessonlms_register_course');
+
+function lessonlms_course_meta_box() {
+    add_meta_box(
+        'course_details',
+        'Course Details',
+        'lessonlms_course_meta_box_callback',
+        'course',
+        'normal',
+        'high'
+    );
+}
+add_action('add_meta_boxes', 'lessonlms_course_meta_box');
+
+function lessonlms_course_meta_box_callback($post) {
+    $price = get_post_meta($post->ID, 'price', true);
+    $original_price = get_post_meta($post->ID, 'original_price', true);
+    $video_hours = get_post_meta($post->ID, 'video_hours', true);
+    $articles = get_post_meta($post->ID, 'articles', true);
+    $resources = get_post_meta($post->ID, 'resources', true);
+    $language = get_post_meta($post->ID, 'language', true);
+    $subtitles = get_post_meta($post->ID, 'subtitles', true);
+    ?>
+    <div style="display: flex; gap: 30px; flex-wrap: wrap;">
+        <p style="display: flex; flex-direction: column;">
+            <label for="price"><strong>Price: </strong></label>
+            <input type="number" step="0.01" name="price" value="<?php echo esc_attr($price); ?>">
+        </p>
+        <p style="display: flex; flex-direction: column;">
+            <label for="original_price"><strong>Original Price: </strong></label>
+            <input type="number" step="0.01" name="original_price" value="<?php echo esc_attr($original_price); ?>">
+        </p>
+        <p style="display: flex; flex-direction: column;">
+            <label for="video_hours"><strong>Total Video Hours: </strong></label>
+            <input type="number" step="0.1" name="video_hours" value="<?php echo esc_attr($video_hours); ?>">
+        </p>
+        <p style="display: flex; flex-direction: column;">
+            <label for="articles"><strong>Total Articles: </strong></label>
+            <input type="number" name="articles" value="<?php echo esc_attr($articles); ?>">
+        </p>
+        <p style="display: flex; flex-direction: column;">
+            <label for="resources"><strong>Total Downloadable Resources: </strong></label>
+            <input type="number" name="resources" value="<?php echo esc_attr($resources); ?>">
+        </p>
+        <p style="display: flex; flex-direction: column;">
+            <label for="language"><strong>Course Language: </strong></label>
+            <input type="text" name="language" value="<?php echo esc_attr($language); ?>">
+        </p>
+        <p style="display: flex; flex-direction: column;">
+            <label for="subtitles"><strong>Subtitles Langulages: </strong></label>
+            <input type="text" name="subtitles" value="<?php echo esc_attr($subtitles); ?>">
+        </p>
+    </div>
+
+    <?php
+}
+
+function lessonlms_save_course_meta($post_id) {
+    $fields = [
+        'price', 
+        'original_price',
+        'video_hours',
+        'articles',
+        'resources',
+        'language',
+        'subtitles'
+    ];
+    foreach ($fields as $field) {
+        if(isset($_POST[$field])) {
+            update_post_meta($post_id, $field, sanitize_text_field($_POST[$field]));
+        }
+    }
+}
+add_action('save_post_course', 'lessonlms_save_course_meta');
